@@ -14,7 +14,8 @@ export default clerkMiddleware((auth, req) => {
 
   const { sessionClaims } = auth();
 
-  const role = (sessionClaims?.metadata as { role?: string })?.role;
+  // const role = (sessionClaims?.metadata as { role?: string })?.role;
+  const role= 'student'
 
   for (const { matcher, allowedRoles } of matchers) {
     if (matcher(req) && !allowedRoles.includes(role!)) {
